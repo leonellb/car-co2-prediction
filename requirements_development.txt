@@ -1,0 +1,4 @@
+isort~=6.0.0
+black~=25.1.0
+black[jupyter]
+
