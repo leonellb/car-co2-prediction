@@ -23,6 +23,11 @@ to merge your code into main:
 git checkout main
 git merge <your_branch_name>
 
+to merge code from main into your branch
+git merge origin <from_branch_name>
+git merge origin main
+
+
 TODO:
 - fetch
 - merge
