@@ -19,6 +19,10 @@ git checkout -b dev-<your_name>
 e.g.
 git checkout -b dev-analyse2023
 
+to merge your code into main:
+git checkout main
+git merge <your_branch_name>
+
 TODO:
 - fetch
 - merge
