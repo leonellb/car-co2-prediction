@@ -12,3 +12,14 @@ pip install -r requirements_development.txt
 
 --> Future Linting and Formatting will be added.
 
+General Rules for our Git Flow
+
+create your own branch for now we use dev to signal we're on a development branch
+git checkout -b dev-<your_name>
+e.g.
+git checkout -b dev-analyse2023
+
+TODO:
+- fetch
+- merge
+- pull ...
