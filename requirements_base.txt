@@ -1,7 +1,10 @@
 # data packages
 numpy~=2.0.2
 pandas~=2.2.3
+
+# Data Visualization
 matplotlib~=3.9.4
+seaborn~=0.13.2
 
 # ML model training
 scikit-learn~=1.6.1
