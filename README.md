@@ -16,7 +16,7 @@ Project Organization
     │
     ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
     │                         the creator's name, and a short `-` delimited description, e.g.
-    │                         `1.0-alban-data-exploration`.
+    │                         `1_0-alban-data-exploration` for private file and `1_0-data-exploration` for shared file.
     │
     ├── references         <- Data dictionaries, manuals, links, and all other explanatory materials.
     │
