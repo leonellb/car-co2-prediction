@@ -1,6 +1,6 @@
 # data packages
-numpy~=2.0.2
-pandas~=2.2.3
+numpy
+pandas
 
 # Data Visualization
 matplotlib~=3.9.4
