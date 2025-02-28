@@ -1,0 +1,32 @@
+[project]
+requires-python = ">=3.9"
+
+[tool.ruff]
+line-length = 300  #
+target-version = "py39"  # "py311"  # Set Python version
+fix = true  # Auto-fix issues when running Ruff
+show-fixes = true
+
+[tool.ruff.lint]
+select = [
+    "E", "F",  # Pyflakes (error and warnings)
+    "I",       # isort (import sorting)
+    "B",       # flake8-bugbear (best practices)
+    "W",       # Pycodestyle warnings
+    "UP",      # pyupgrade (modern Python syntax)
+    "C90"      # mccabe (complexity checks)
+#    "D",   # pydocstyle
+]
+ignore = [
+    "E501",  # Ignore line length errors
+]
+[tool.ruff.format]
+# Enable Ruff's Black-like formatting
+quote-style = "double"  # Force double quotes
+indent-style = "space"  # Enforce spaces over tabs
+line-ending = "lf"  # Unix-style line endings
+docstring-code-format = true  # Format code snippets in docstrings
+
+[tool.ruff.lint.isort]
+# known-first-party = ["my_project"]  # Adjust import sorting for local modules
+combine-as-imports = true  # Merge `import x as y` lines

@@ -1,4 +1,5 @@
-isort~=6.0.0
-black~=25.1.0
-black[jupyter]
+pre_commit~=4.1.0
 
+# isort~=6.0.0
+# black~=25.1.0
+# black[jupyter]
