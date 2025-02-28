@@ -10,6 +10,9 @@ You can manually activate venv environment with: .\venv\Scripts\activate
 pip install -r requirements_base.txt
 pip install -r requirements_development.txt
 
+4. Install to activate pre-commit hooks
+pre-commit install
+
 --> Future Linting and Formatting will be added.
 
 General Rules for our Git Flow
