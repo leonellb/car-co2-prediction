@@ -5,18 +5,20 @@ def raw_csv_to_proc_csv_converter(file_name: str):
 
 
 # Preprocessing
-OUTPUT_DIR = "files/output"  # folder for files that are output only (e.g. plots, reports, etc.)
-PRE_ANALYSIS_FILE = "files/2023-eea_europa_eu-CarsCO2.csv"
-# TODO add EU data files for 2021 and 2022
+OUTPUT_DIR = "files/output/"  # folder for files that are output only (e.g. plots, reports, etc.)
+# PRE_ANALYSIS_FILE = "files/2023-eea_europa_eu-CarsCO2.csv"
+PRE_ANALYSIS_FILE = "files/23_22_21-eea_europa_eu-CarsCO2.csv"
 
-RAW_DATA_FILES = ["files/2023-eea_europa_eu-CarsCO2.csv"]
+# RAW_DATA_FILES = ["files/2023-eea_europa_eu-CarsCO2.csv"]
+RAW_DATA_FILES = ["files/23_22_21-eea_europa_eu-CarsCO2.csv"]
+
 # preprocessed files are only accessible if you executed 1_1-prep_database_file_generator.ipynb
 PREP_DATA_FILES = [raw_csv_to_proc_csv_converter(file) for file in RAW_DATA_FILES]
 
-MERGED_DATA_FILE = "files/eea_europa_eu-CarsCO2_merged.csv"
+MERGED_DATA_FILE = "files/23_22_21-eea_europa_eu-CarsCO2_proc.csv"
 
 DENSITY_THRESHOLD = 0.7
-UNIQUE_VALUES_THRESHOLD = 20
+UNIQUE_VALUES_THRESHOLD = 30
 
 # columns to be dropped without further analysis required (mostly related to results of 1_0-prep_pre_analysis.ipynb)
 COLS_PRE_DROP = ["Mp", "VFN", "Man", "Mk", "MMS", "Tan", "Va", "Ve", "Cr", "Enedc (g/km)", "W (mm)", "At1 (mm)", "At2 (mm)", "Ernedc (g/km)", "De", "Vf", "r", "Status", "Date of registration", "RLFI", "ech"]
