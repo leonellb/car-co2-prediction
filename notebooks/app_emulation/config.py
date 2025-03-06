@@ -5,17 +5,20 @@ def raw_csv_to_proc_csv_converter(file_name: str):
 
 
 # Preprocessing
-OUTPUT_DIR = "files/output/"  # folder for files that are output only (e.g. plots, reports, etc.)
-# PRE_ANALYSIS_FILE = "files/2023-eea_europa_eu-CarsCO2.csv"
-PRE_ANALYSIS_FILE = "files/23_22_21-eea_europa_eu-CarsCO2.csv"
+# folder for files that are output only (e.g. plots, reports, etc.)
+OUTPUT_DIR = "files/output/"
+# folder for files that are used as input and output
+FILES_DIR = "files/"
 
-# RAW_DATA_FILES = ["files/2023-eea_europa_eu-CarsCO2.csv"]
+PRE_ANALYSIS_FILE = "files/23_22_21-eea_europa_eu-CarsCO2.csv"
 RAW_DATA_FILES = ["files/23_22_21-eea_europa_eu-CarsCO2.csv"]
 
 # preprocessed files are only accessible if you executed 1_1-prep_database_file_generator.ipynb
 PREP_DATA_FILES = [raw_csv_to_proc_csv_converter(file) for file in RAW_DATA_FILES]
 
 MERGED_DATA_FILE = "files/23_22_21-eea_europa_eu-CarsCO2_proc.csv"
+MERGED_COMBUSTION_FILE = "files/23_22_21-eea_europa_eu-CarsCO2_combustion.csv"
+MERGED_ELECTRIC_FILE = "files/23_22_21-eea_europa_eu-CarsCO2_electric.csv"
 
 DENSITY_THRESHOLD = 0.7
 UNIQUE_VALUES_THRESHOLD = 30
@@ -66,7 +69,10 @@ DATABASE_FILE_DTYPES = {
     "specific_co2_emissions": "float64",
 }
 
-
+# columns_to_analyse for df_combustion and for df_electric
+# MAKE SURE to update fuel_types if other datasets have types we did not consider.
+COMBUSTION_FUEL_TYPES = ["diesel", "petrol", "petrol/electric", "ng", "lpg", "ng-biomethane", "e85", "diesel/electric"]
+ELECTRIC_FUEL_TYPES = ["electric"]
 # Model Training
 
 # Model Evaluation
