@@ -26,6 +26,8 @@ UNIQUE_VALUES_THRESHOLD = 30
 # columns to be dropped without further analysis required (mostly related to results of 1_0-prep_pre_analysis.ipynb)
 COLS_PRE_DROP = ["Mp", "VFN", "Man", "Mk", "MMS", "Tan", "Va", "Ve", "Cr", "Enedc (g/km)", "W (mm)", "At1 (mm)", "At2 (mm)", "Ernedc (g/km)", "De", "Vf", "r", "Status", "Date of registration", "RLFI", "ech"]
 
+REPLACE_STRING_OTHER = "other"
+
 # update this mapper to select interesting columns including rename to proper format
 COLS_MAPPER = {
     "Cn": "commercial_name",
@@ -73,6 +75,7 @@ DATABASE_FILE_DTYPES = {
 # MAKE SURE to update fuel_types if other datasets have types we did not consider.
 COMBUSTION_FUEL_TYPES = ["diesel", "petrol", "petrol/electric", "ng", "lpg", "ng-biomethane", "e85", "diesel/electric"]
 ELECTRIC_FUEL_TYPES = ["electric"]
+ELECTRIC_TARGET = "electric_energy_consumption"
 # Model Training
 
 # Model Evaluation
