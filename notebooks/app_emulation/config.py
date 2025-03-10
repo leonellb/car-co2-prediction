@@ -20,11 +20,18 @@ MERGED_DATA_FILE = "files/23_22_21-eea_europa_eu-CarsCO2_proc.csv"
 MERGED_COMBUSTION_FILE = "files/23_22_21-eea_europa_eu-CarsCO2_combustion.csv"
 MERGED_ELECTRIC_FILE = "files/23_22_21-eea_europa_eu-CarsCO2_electric.csv"
 
+ENCODED_PREP_ELECTRIC_FILE = "files/23_22_21-eea_europa_eu-CarsCO2_electric_enc.csv"
+
+TRAIN_TEST_SPLIT_ELECTRIC_FILE = "files/electric-train_test_split.pkl"
+SCALER_ELECTRIC_FILE = "files/electric-scaler.pk1"
+
 DENSITY_THRESHOLD = 0.7
 UNIQUE_VALUES_THRESHOLD = 30
 
 # columns to be dropped without further analysis required (mostly related to results of 1_0-prep_pre_analysis.ipynb)
 COLS_PRE_DROP = ["Mp", "VFN", "Man", "Mk", "MMS", "Tan", "Va", "Ve", "Cr", "Enedc (g/km)", "W (mm)", "At1 (mm)", "At2 (mm)", "Ernedc (g/km)", "De", "Vf", "r", "Status", "Date of registration", "RLFI", "ech"]
+
+REPLACE_STRING_OTHER = "other"
 
 # update this mapper to select interesting columns including rename to proper format
 COLS_MAPPER = {
@@ -73,6 +80,7 @@ DATABASE_FILE_DTYPES = {
 # MAKE SURE to update fuel_types if other datasets have types we did not consider.
 COMBUSTION_FUEL_TYPES = ["diesel", "petrol", "petrol/electric", "ng", "lpg", "ng-biomethane", "e85", "diesel/electric"]
 ELECTRIC_FUEL_TYPES = ["electric"]
+ELECTRIC_TARGET = "electric_energy_consumption"
 # Model Training
 
 # Model Evaluation
