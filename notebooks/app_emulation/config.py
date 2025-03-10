@@ -20,6 +20,11 @@ MERGED_DATA_FILE = "files/23_22_21-eea_europa_eu-CarsCO2_proc.csv"
 MERGED_COMBUSTION_FILE = "files/23_22_21-eea_europa_eu-CarsCO2_combustion.csv"
 MERGED_ELECTRIC_FILE = "files/23_22_21-eea_europa_eu-CarsCO2_electric.csv"
 
+ENCODED_PREP_ELECTRIC_FILE = "files/23_22_21-eea_europa_eu-CarsCO2_electric_enc.csv"
+
+TRAIN_TEST_SPLIT_ELECTRIC_FILE = "files/electric-train_test_split.pkl"
+SCALER_ELECTRIC_FILE = "files/electric-scaler.pk1"
+
 DENSITY_THRESHOLD = 0.7
 UNIQUE_VALUES_THRESHOLD = 30
 
