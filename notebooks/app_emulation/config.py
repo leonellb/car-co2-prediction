@@ -22,9 +22,6 @@ MERGED_ELECTRIC_FILE = "files/23_22_21-eea_europa_eu-CarsCO2_electric.csv"
 
 ENCODED_PREP_ELECTRIC_FILE = "files/23_22_21-eea_europa_eu-CarsCO2_electric_enc.csv"
 
-TRAIN_TEST_SPLIT_ELECTRIC_FILE = "files/electric-train_test_split.pkl"
-SCALER_ELECTRIC_FILE = "files/electric-scaler.pk1"
-
 DENSITY_THRESHOLD = 0.7
 UNIQUE_VALUES_THRESHOLD = 30
 
@@ -82,5 +79,11 @@ COMBUSTION_FUEL_TYPES = ["diesel", "petrol", "petrol/electric", "ng", "lpg", "ng
 ELECTRIC_FUEL_TYPES = ["electric"]
 ELECTRIC_TARGET = "electric_energy_consumption"
 # Model Training
+TRAIN_TEST_SPLIT_ELECTRIC_FILE = "files/electric-train_test_split.pkl"
+SCALER_ELECTRIC_FILE = "files/electric-scaler.pk1"
 
+TRAIN_TEST_SPLIT_ELECTRIC_FILE_SAMPLED = "files/electric-train_test_split_sampled.pkl"
+SCALER_ELECTRIC_FILE_SAMPLED = "files/electric-scaler_sampled.pk1"
+
+ELECTRIC_MODEL_FILE = "files/output/models/electric-model.pkl"
 # Model Evaluation
