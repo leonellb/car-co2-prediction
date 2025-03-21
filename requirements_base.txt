@@ -9,3 +9,7 @@ seaborn~=0.13.2
 # ML model training
 scikit-learn~=1.6.1
 lazypredict~=0.2.13
+
+# ML model interpretability
+shap~=0.47.0
+lime~=0.2.0.1
