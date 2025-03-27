@@ -86,4 +86,9 @@ TRAIN_TEST_SPLIT_ELECTRIC_FILE_SAMPLED = "files/electric-train_test_split_sample
 SCALER_ELECTRIC_FILE_SAMPLED = "files/electric-scaler_sampled.pk1"
 
 ELECTRIC_MODEL_FILE = "files/output/models/electric-model.pkl"
+ELECTRIC_NN_MODEL_FILE = "files/output/models/electric-nn_model.keras"
+ELECTRIC_NN_CKPT_MODEL_FILE = "files/output/models/electric-nn_model_ckpt.keras"
+# store with additional epoch information
+# ELECTRIC_NN_CKPT_MODEL_FILE = "files/output/models/electric-nn_model_ckpt-{epoch:04d}.keras"
+
 # Model Evaluation
