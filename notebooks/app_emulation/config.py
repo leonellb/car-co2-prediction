@@ -90,5 +90,8 @@ ELECTRIC_NN_MODEL_FILE = "files/output/models/electric-nn_model.keras"
 ELECTRIC_NN_CKPT_MODEL_FILE = "files/output/models/electric-nn_model_ckpt.keras"
 # store with additional epoch information
 # ELECTRIC_NN_CKPT_MODEL_FILE = "files/output/models/electric-nn_model_ckpt-{epoch:04d}.keras"
+ELECTRIC_NN_MODEL_FILE_USAMPLED = "files/output/models/electric-nn_model-usampled.keras"
+ELECTRIC_NN_CKPT_MODEL_FILE_USAMPLED = "files/output/models/electric-nn_model_ckpt-usampled.keras"
+
 
 # Model Evaluation
