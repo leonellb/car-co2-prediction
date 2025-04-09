@@ -1,7 +1,22 @@
+import joblib
+import numpy as np
+from sklearn.metrics import mean_squared_error
+
 import streamlit as st
 
+
+@st.cache_data
+def joblib_load(input_file):
+    return joblib.load(input_file)
+
+
+@st.cache_data
+def model_predict(model, data):
+    return model.predict(data)
+
+
 # Set up the main title of the application
-st.title('Predicting Vehicle CO₂ Emissions')
+st.title("Predicting Vehicle CO₂ Emissions")
 
 # Set up sidebar navigation
 page = st.sidebar.selectbox("Choose a page:", ["Home", "Combustion", "Electric"])
@@ -14,23 +29,34 @@ elif page == "Combustion":
     st.header("Combustion Cars Analysis")
     st.write("Welcome to the Combustion side of our modeling project. Below, we will provide you with our prediction results for the selected models:")
 
-    #@Richard: here, paste your code to import the combustion csv and do the preprocessing steps to prepare the data_test variable.
+    X_train_comb = joblib_load("/content/drive/My Drive/X_train_comb.pkl")
+    X_test_comb = joblib_load("/content/drive/My Drive/X_test_comb.pkl")
+    y_train_comb = joblib_load("/content/drive/My Drive/y_train_comb.pkl")
+    y_test_comb = joblib_load("/content/drive/My Drive/y_test_comb.pkl")
 
-    use_case = st.radio("Select Data Type", ("Prediction with Unsmoted Data Training Data", "Prediction with Smoted Data Training Data"))
-    if use_case == "Prediction with Unsmoted Data Training":
-        st.write("You have selected Unsmoted Data Training for Combustion Cars.")
-        # Add more interactive elements or outputs specific to this choice
-        #@Richard the "Smote" thing is just a placeholder. Here you can import your model file and predict on the data_test variable you prepared above
-        #You can insert more sub-parts here (as I prepared with "unsmoted" and "smoted" as an example) if you want more selection options (not necessary, just depending on your needs)
-    else:
-        st.write("You have selected Smoted Data Training for Combustion Cars.")
-        # Add more interactive elements or outputs specific to this choice
+    XGB_model = joblib_load("/content/drive/My Drive/modelXGBRegressor.pkl")
+
+    # score of XGBRegressor
+    pred_train = model_predict(XGB_model, X_train_comb)
+    pred_test = model_predict(XGB_model, X_test_comb)
+    sc_train = XGB_model.score(X_train_comb, y_train_comb)
+    sc_test = XGB_model.score(X_test_comb, y_test_comb)
+    st.write("score: ", sc_train)
+    st.write("score: ", sc_test)
+
+    # root-mean-squared-error
+    y_pred_train = model_predict(XGB_model, X_train_comb)
+    y_pred_test = model_predict(XGB_model, X_test_comb)
+    rmse_tr = np.sqrt(mean_squared_error(y_pred_train, y_train_comb))
+    rmse_te = np.sqrt(mean_squared_error(y_pred_test, y_test_comb))
+    st.write("rmse training data: ", rmse_tr)
+    st.write("rmse test data: ", rmse_te)
 
 elif page == "Electric":
     st.header("Electric Cars Analysis")
     st.write("Welcome to the Electric side of our modeling project. Below, we will provide you with our prediction results for the selected models:")
 
-    #@Philipp/Leonel: Feel Free
+    # @Philipp/Leonel: Feel Free
 
     use_case = st.selectbox("Select Data Type", ["Prediction with Unsmoted Data Training", "Prediction with Smoted Data Training"])
     if use_case == "Prediction with Unsmoted Data Training":
@@ -40,4 +66,4 @@ elif page == "Electric":
         st.write("You have selected Smoted Data Training for Electric Cars.")
         # Add more interactive elements or outputs specific to this choice
 
-#expand the app with more results as needed
+# expand the app with more results as needed
