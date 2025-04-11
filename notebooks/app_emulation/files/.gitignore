@@ -2,7 +2,9 @@
 !.gitkeep
 !.gitignore
 !output
-!output/models
+# !output/models
+!output/models/electric-model.pkl
+!output/models/combustion-model.pk1
 
 # scaler files
 !electric-scaler.pk1
