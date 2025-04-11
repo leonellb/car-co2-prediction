@@ -15,6 +15,11 @@ All files here are maintained and require more strict rules in regards of update
 
 # General Rules
 
+## Execute streamlit
+* make sure to activate venv
+* move with terminal to location with streamlit file: 'JAN25_BDS_INT_CO2\notebooks\app_emulation'
+* Execute streamlit with <code>streamlit run .\3_0-streamlit.py</code>
+
 ## Notebooks and Python files
 * Docstring with brief description of Purpose, Input, Output, Setup/Config (e.g. variables we want to adjust and inherit globally)
 * Prefer smaller units and multiple files and try to avoid monolith
