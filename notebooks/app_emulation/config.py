@@ -80,7 +80,9 @@ ELECTRIC_FUEL_TYPES = ["electric"]
 ELECTRIC_TARGET = "electric_energy_consumption"
 # Model Training
 TRAIN_TEST_SPLIT_ELECTRIC_FILE = "files/electric-train_test_split.pkl"
+TRAIN_TEST_SPLIT_COMBUSTION_FILE = "files/combustion-train_test_split.pkl"
 SCALER_ELECTRIC_FILE = "files/electric-scaler.pkl"
+SCALER_COMBUSTION_FILE = "files/combustion-scaler.pkl"
 
 TRAIN_TEST_SPLIT_ELECTRIC_FILE_SAMPLED = "files/electric-train_test_split_sampled.pkl"
 SCALER_ELECTRIC_FILE_SAMPLED = "files/electric-scaler_sampled.pkl"

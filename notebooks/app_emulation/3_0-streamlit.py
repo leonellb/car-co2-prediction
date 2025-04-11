@@ -1,9 +1,10 @@
-import streamlit as st
-import joblib
 import json
-import pandas as pd
 
-from config import ELECTRIC_MODEL_FILE, COMBUSTION_MODEL_FILE, ELECTRIC_COLS_VALS_SELECTION_FILE, ELECTRIC_PREDICTION_PRESELECT_FILE, TRAIN_TEST_SPLIT_ELECTRIC_FILE, SCALER_ELECTRIC_FILE
+import joblib
+import pandas as pd
+from config import COMBUSTION_MODEL_FILE, ELECTRIC_COLS_VALS_SELECTION_FILE, ELECTRIC_MODEL_FILE, ELECTRIC_PREDICTION_PRESELECT_FILE, SCALER_COMBUSTION_FILE, SCALER_ELECTRIC_FILE, TRAIN_TEST_SPLIT_COMBUSTION_FILE, TRAIN_TEST_SPLIT_ELECTRIC_FILE
+
+import streamlit as st
 
 # TODO replace/unify joblib functions
 
@@ -15,7 +16,7 @@ def load_model(file_path):
 @st.cache_resource
 def load_json(file_path):
     """Load variable selection from a .json file."""
-    return json.load(open(file_path, 'r', encoding='utf-8'))
+    return json.load(open(file_path, encoding='utf-8'))
 
 @st.cache_resource
 def load_test_train_split(file_path):
@@ -46,7 +47,7 @@ model_type = st.sidebar.radio(
 
 # Main page content
 # st.title("Predicting Vehicle CO₂ Emissions")
-   
+
 if model_type == sidebar_sel_pred_electric:
     st.title("Predicting electrical energy consumption")
     st.write("Provide input values for live predictions:")
@@ -134,15 +135,15 @@ if model_type == sidebar_sel_pred_electric:
 
 if model_type == sidebar_sel_pred_test_electric:
     st.title("Predicting electrical energy consumption based on test data")
-    
+
     # Load the Electric Model
     electric_model = load_model(ELECTRIC_MODEL_FILE)
-    
+
     _, X_test, _, y_test = load_test_train_split(TRAIN_TEST_SPLIT_ELECTRIC_FILE)
 
     # Pick the columns you want to show in the multiselect label
     display_cols = ['mass_vehicle', 'engine_power', 'year', 'electric_range']
-    
+
     options = {}
     for i in X_test.head(100).index:
         values = [f"{col}={X_test.at[i, col]}" for col in display_cols]
@@ -195,6 +196,9 @@ elif model_type == sidebar_sel_pred_combustion:
     st.write("TO BE DEVELOPED")
     # # Load the Combustion Model
     combustion_model = load_model(COMBUSTION_MODEL_FILE)
+
+    _, X_test_comb, _, y_test_comb = load_test_train_split(TRAIN_TEST_SPLIT_COMBUSTION_FILE)
+    combustion_scaler = load_scaler(SCALER_COMBUSTION_FILE)
 
     # # Input fields for Combustion Model
     # fuel_rate = st.number_input("Fuel Rate (L/h)", value=5.0)

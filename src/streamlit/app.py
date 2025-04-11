@@ -1,5 +1,6 @@
-import streamlit as st
 import joblib
+
+import streamlit as st
 
 # Set up the Streamlit app
 st.set_page_config(page_title="Model Selector Predicting Vehicle CO₂ Emissions", layout="wide")
