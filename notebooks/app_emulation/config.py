@@ -85,6 +85,7 @@ SCALER_ELECTRIC_FILE = "files/electric-scaler.pk1"
 TRAIN_TEST_SPLIT_ELECTRIC_FILE_SAMPLED = "files/electric-train_test_split_sampled.pkl"
 SCALER_ELECTRIC_FILE_SAMPLED = "files/electric-scaler_sampled.pk1"
 
+# electric model files
 ELECTRIC_MODEL_FILE = "files/output/models/electric-model.pkl"
 ELECTRIC_NN_MODEL_FILE = "files/output/models/electric-nn_model.keras"
 ELECTRIC_NN_CKPT_MODEL_FILE = "files/output/models/electric-nn_model_ckpt.keras"
@@ -93,5 +94,9 @@ ELECTRIC_NN_CKPT_MODEL_FILE = "files/output/models/electric-nn_model_ckpt.keras"
 ELECTRIC_NN_MODEL_FILE_USAMPLED = "files/output/models/electric-nn_model-usampled.keras"
 ELECTRIC_NN_CKPT_MODEL_FILE_USAMPLED = "files/output/models/electric-nn_model_ckpt-usampled.keras"
 
+# combustion model files
+COMBUSTION_MODEL_FILE = "files/output/models/combustion-model.pkl"
 
-# Model Evaluation
+# Streamlit presentation
+ELECTRIC_COLS_VALS_SELECTION_FILE = "files/output/electric-unique_vals_cat_cols.json"
+ELECTRIC_PREDICTION_PRESELECT_FILE = "files/output/electric-prediction-preselect.json"
