@@ -80,10 +80,10 @@ ELECTRIC_FUEL_TYPES = ["electric"]
 ELECTRIC_TARGET = "electric_energy_consumption"
 # Model Training
 TRAIN_TEST_SPLIT_ELECTRIC_FILE = "files/electric-train_test_split.pkl"
-SCALER_ELECTRIC_FILE = "files/electric-scaler.pk1"
+SCALER_ELECTRIC_FILE = "files/electric-scaler.pkl"
 
 TRAIN_TEST_SPLIT_ELECTRIC_FILE_SAMPLED = "files/electric-train_test_split_sampled.pkl"
-SCALER_ELECTRIC_FILE_SAMPLED = "files/electric-scaler_sampled.pk1"
+SCALER_ELECTRIC_FILE_SAMPLED = "files/electric-scaler_sampled.pkl"
 
 # electric model files
 ELECTRIC_MODEL_FILE = "files/output/models/electric-model.pkl"
@@ -98,5 +98,5 @@ ELECTRIC_NN_CKPT_MODEL_FILE_USAMPLED = "files/output/models/electric-nn_model_ck
 COMBUSTION_MODEL_FILE = "files/output/models/combustion-model.pkl"
 
 # Streamlit presentation
-ELECTRIC_COLS_VALS_SELECTION_FILE = "files/output/electric-unique_vals_cat_cols.json"
-ELECTRIC_PREDICTION_PRESELECT_FILE = "files/output/electric-prediction-preselect.json"
+ELECTRIC_COLS_VALS_SELECTION_FILE = "files/electric-unique_vals_cat_cols.json"
+ELECTRIC_PREDICTION_PRESELECT_FILE = "files/electric-prediction-preselect.json"

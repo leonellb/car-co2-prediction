@@ -18,7 +18,7 @@ def load_json(file_path):
     return json.load(open(file_path, 'r', encoding='utf-8'))
 
 @st.cache_resource
-def load_electric_test_train_split(file_path):
+def load_test_train_split(file_path):
     """Load from a joblib file."""
     return joblib.load(file_path)
 
@@ -138,7 +138,7 @@ if model_type == sidebar_sel_pred_test_electric:
     # Load the Electric Model
     electric_model = load_model(ELECTRIC_MODEL_FILE)
     
-    _, X_test, _, y_test = load_electric_test_train_split(TRAIN_TEST_SPLIT_ELECTRIC_FILE)
+    _, X_test, _, y_test = load_test_train_split(TRAIN_TEST_SPLIT_ELECTRIC_FILE)
 
     # Pick the columns you want to show in the multiselect label
     display_cols = ['mass_vehicle', 'engine_power', 'year', 'electric_range']

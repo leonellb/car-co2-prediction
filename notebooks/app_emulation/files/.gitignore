@@ -2,12 +2,13 @@
 !.gitkeep
 !.gitignore
 !output
-# !output/models
+
+# model files
 !output/models/electric-model.pkl
-!output/models/combustion-model.pk1
+!output/models/combustion-model.pkl
 
 # scaler files
-!electric-scaler.pk1
+!electric-scaler.pkl
 
 # json files
 !electric-prediction-preselect.json
