@@ -23,7 +23,7 @@ def load_electric_test_train_split(file_path):
     return joblib.load(file_path)
 
 @st.cache_resource
-def load_electric_scaler(file_path):
+def load_scaler(file_path):
     """Load scaler from a joblib file."""
     return joblib.load(file_path)
 
@@ -121,7 +121,7 @@ if model_type == sidebar_sel_pred_electric:
         df_prediction['electric_range'] = choice_electric_range
 
         # scale the input data
-        electric_scaler = load_electric_scaler(SCALER_ELECTRIC_FILE)
+        electric_scaler = load_scaler(SCALER_ELECTRIC_FILE)
 
         cols_to_be_scaled = df_prediction[["mass_vehicle", "engine_power", "year", "electric_range"]].columns
         df_prediction[cols_to_be_scaled] = electric_scaler.transform(df_prediction[cols_to_be_scaled])
@@ -192,16 +192,17 @@ elif model_type == sidebar_sel_pred_combustion:
     st.title("Predicting Carbon Dioxide Emissions")
     st.write("Provide input values for live predictions:")
 
-    # Load the Combustion Model
+    st.write("TO BE DEVELOPED")
+    # # Load the Combustion Model
     combustion_model = load_model(COMBUSTION_MODEL_FILE)
 
-    # Input fields for Combustion Model
-    fuel_rate = st.number_input("Fuel Rate (L/h)", value=5.0)
-    efficiency = st.number_input("Efficiency (%)", value=30.0)
+    # # Input fields for Combustion Model
+    # fuel_rate = st.number_input("Fuel Rate (L/h)", value=5.0)
+    # efficiency = st.number_input("Efficiency (%)", value=30.0)
 
-    # Prepare input for prediction
-    preselection_data = [[fuel_rate, efficiency]]
+    # # Prepare input for prediction
+    # preselection_data = [[fuel_rate, efficiency]]
 
-    # Make prediction
-    energy_output_prediction = combustion_model.predict(preselection_data)[0]
-    st.write(f"Predicted Energy Output: {energy_output_prediction} kWh")
+    # # Make prediction
+    # energy_output_prediction = combustion_model.predict(preselection_data)[0]
+    # st.write(f"Predicted Energy Output: {energy_output_prediction} kWh")
