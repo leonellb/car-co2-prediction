@@ -69,16 +69,17 @@ if model_type == sidebar_sel_pred_electric:
     #     else:
     #         st.number_input(col, value=vals)
 
+    # index used for default selection
     # member_state
-    choice_member_state = st.selectbox("Member State", electric_cols_val_selection['member_state'])
+    choice_member_state = st.selectbox("Member State", electric_cols_val_selection['member_state'], index=0)
     # manufacturer_name_eu
-    choice_manufacturer_name_eu = st.selectbox("Manufacturer", electric_cols_val_selection['manufacturer_name_eu'])
+    choice_manufacturer_name_eu = st.selectbox("Manufacturer", electric_cols_val_selection['manufacturer_name_eu'], index=0)
     # vehicle_type
-    choice_vehicle_type = st.selectbox("vehicle_type", electric_cols_val_selection['vehicle_type'])
+    choice_vehicle_type = st.selectbox("vehicle_type", electric_cols_val_selection['vehicle_type'], index=0)
     # commercial_name
-    choice_commercial_name = st.selectbox("commercial_name", electric_cols_val_selection['commercial_name'])
+    choice_commercial_name = st.selectbox("commercial_name", electric_cols_val_selection['commercial_name'], index=0)
     # category_of_vehicle
-    choice_category_of_vehicle = st.selectbox("category_of_vehicle", electric_cols_val_selection['category_of_vehicle'])
+    choice_category_of_vehicle = st.selectbox("category_of_vehicle", electric_cols_val_selection['category_of_vehicle'], index=0)
 
     choice_mass_vehicle = st.number_input("mass_vehicle [kg]", value=electric_cols_val_selection['mass_vehicle'])
     choice_engine_power = st.number_input("engine_power [KW]", value=electric_cols_val_selection['engine_power'])
