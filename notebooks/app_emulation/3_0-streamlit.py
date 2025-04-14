@@ -202,17 +202,17 @@ elif model_type == sidebar_sel_pred_combustion:
     # # Load the Combustion Model
     #combustion_model = load_model(COMBUSTION_MODEL_FILE)
     _, X_test_comb, _, y_test_comb = load_test_train_split(TRAIN_TEST_SPLIT_COMBUSTION_FILE)
-    combustion_model = load('files/output/models/combustion_model.joblib')
+    combustion_model = load('files/output/models/combustion-model.joblib')
     with open('files/raw-dataset_combustion.pkl', 'rb') as f:
         df_pe_cleaned = pickle.load(f)
-    batch_si= int(0.1*df_pe_cleaned.shape[0])
-    df_pe_cleaned= df_pe_cleaned[:batch_si]
-    batch_size= int(0.1*X_test_comb.shape[0])
-    X_test_comb= X_test_comb[:batch_size]
-    y_test_comb= y_test_comb[:batch_size]
+    #batch_si= int(0.1*df_pe_cleaned.shape[0])
+    #df_pe_cleaned= df_pe_cleaned[:batch_si]
+    #batch_size= int(0.1*X_test_comb.shape[0])
+    #X_test_comb= X_test_comb[:batch_size]
+    #y_test_comb= y_test_comb[:batch_size]
     # preparation for selctboxes
     # unique values of columns
-    uniques_m_s = np.sort(df_pe_cleaned['member_state'].unique()[:20])
+    uniques_m_s = np.sort(df_pe_cleaned['member_state'].unique()[:50])
     choice_m_s= st.selectbox('Member_state:', uniques_m_s)
     uniques_m_n_e = np.sort(df_pe_cleaned['manufacturer_name_eu'].unique()[:20])
     choice_m_n_e= st.selectbox('Manufactorer_EU:', uniques_m_n_e)
@@ -233,13 +233,13 @@ elif model_type == sidebar_sel_pred_combustion:
         choice_weltp_test_mass = float(custom_value) 
     uniques_e_c = np.sort(df_pe_cleaned['engine_capacity'].unique()[:20])
     formatted_values_e_c = ["{:.1f}".format(x) for x in uniques_e_c]
-    choice_e_c= st.selectbox("engine_capacity [cm^3] :", formatted_values_e_c)
+    choice_e_c= float(st.selectbox("engine_capacity [cm^3] :", formatted_values_e_c))
     custom_value = st.text_input('Free input engine capacity [cm^3]', key= 'engine_capacity')
     if custom_value:
         choice_e_c = float(custom_value) 
     uniques_e_p = np.sort(df_pe_cleaned['engine_power'].unique()[:20])
     formatted_values_e_p = ["{:.1f}".format(x) for x in uniques_e_p]
-    choice_e_p= st.selectbox('engine_power [kW]', formatted_values_e_p)
+    choice_e_p= float(st.selectbox('engine_power [kW]', formatted_values_e_p))
     custom_value = st.text_input('Free input engine power [kW]', key = 'engine_power')
     if custom_value:
         choice_e_p = float(custom_value)
@@ -247,7 +247,7 @@ elif model_type == sidebar_sel_pred_combustion:
     choice_year= st.selectbox('year:', uniques_year)
     custom_value = st.text_input('Free input year', key = 'year')
     if custom_value:
-        choice_year = custom_value
+        choice_year = float(custom_value)
     #writing selected values to a dataframe
     
     if st.button("Predict", type="primary"):
@@ -268,7 +268,7 @@ elif model_type == sidebar_sel_pred_combustion:
         'engine_power': [choice_e_p],
         'year': [choice_year]
         })
-        X_pe_cleaned=df_pe_cleaned.drop(columns = ["specific_co2_emissions","fuel_consumption"])
+        X_pe_cleaned=df_pe_cleaned.drop(columns = ["specific_co2_emissions"])
         X_prediction_comb = pd.concat([X_pe_cleaned, df_prediction_comb], axis=0, ignore_index=True)
         #X_prediction_comb = X_prediction_comb.drop(columns = ["ID"])
         #labelencoding the inserted values
@@ -279,6 +279,7 @@ elif model_type == sidebar_sel_pred_combustion:
         num_cols = X_prediction_comb.select_dtypes(include=["float64", "int64"]).columns
         #st.write("cat_cols: ", cat_cols)
         #st.write("num_cols: ", num_cols)
+        st.dataframe(X_prediction_comb)
         for col in cat_cols:
             X_prediction_comb[col] = enc.fit_transform(X_prediction_comb[col])
         X_prediction_comb[num_cols]= scaler.fit_transform(X_prediction_comb[num_cols])
