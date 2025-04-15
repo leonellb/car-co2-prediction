@@ -205,6 +205,9 @@ elif model_type == sidebar_sel_pred_combustion:
     combustion_model = load('files/output/models/combustion-model.joblib')
     with open('files/raw-dataset_combustion.pkl', 'rb') as f:
         df_pe_cleaned = pickle.load(f)
+    if st.checkbox("Show raw data"):
+        st.write("#### Raw data")
+        st.dataframe(df_pe_cleaned)
     #batch_si= int(0.1*df_pe_cleaned.shape[0])
     #df_pe_cleaned= df_pe_cleaned[:batch_si]
     #batch_size= int(0.1*X_test_comb.shape[0])
@@ -279,7 +282,7 @@ elif model_type == sidebar_sel_pred_combustion:
         num_cols = X_prediction_comb.select_dtypes(include=["float64", "int64"]).columns
         #st.write("cat_cols: ", cat_cols)
         #st.write("num_cols: ", num_cols)
-        st.dataframe(X_prediction_comb)
+        #st.dataframe(X_prediction_comb)
         for col in cat_cols:
             X_prediction_comb[col] = enc.fit_transform(X_prediction_comb[col])
         X_prediction_comb[num_cols]= scaler.fit_transform(X_prediction_comb[num_cols])
